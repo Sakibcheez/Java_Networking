@@ -7,10 +7,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-
 public class Client {
-    
-     public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         System.out.println("Client started..");
         Socket socket = new Socket("127.0.0.1", 22222);
         System.out.println("Client Connected..");
@@ -34,6 +32,4 @@ public class Client {
         }
 
     }
-    
-    
 }
