@@ -1,0 +1,174 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_IN_PAGE_ERROR (0xc0000006) at pc=0x00007ffef7dad91a, pid=7668, tid=7120
+#
+# JRE version: OpenJDK Runtime Environment Zulu22.30+13-CA (22.0.1+8) (build 22.0.1+8)
+# Java VM: OpenJDK 64-Bit Server VM Zulu22.30+13-CA (22.0.1+8, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x21d91a]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azul.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 radius_area_fx.Radius_Area_FX
+
+Host: AMD Ryzen 5 3400G with Radeon Vega Graphics    , 8 cores, 5G,  Windows 10 , 64 bit Build 19041 (10.0.19041.4597)
+Time: Tue Jul  2 02:21:27 2024 Bangladesh Standard Time elapsed time: 63.649493 seconds (0d 0h 1m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001e677bb7e30):  JavaThread "QuantumRenderer-0" daemon [_thread_in_vm, id=7120, stack(0x000000687de00000,0x000000687df00000) (1024K)]
+
+Stack: [0x000000687de00000,0x000000687df00000],  sp=0x000000687defcf30,  free space=1011k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x21d91a]  (no source info available)
+V  [jvm.dll+0x21ee15]  (no source info available)
+V  [jvm.dll+0x21f831]  (no source info available)
+V  [jvm.dll+0x21495e]  (no source info available)
+V  [jvm.dll+0x5d075f]  (no source info available)
+V  [jvm.dll+0x84a7a6]  (no source info available)
+V  [jvm.dll+0x4878e6]  (no source info available)
+V  [jvm.dll+0x48d7a8]  (no source info available)
+C  [java.dll+0x1951]  (no source info available)
+C  0x000001e66ae5cfc7  (no source info available)
+
+The last pc belongs to native method entry point (kind = native) (printed below).
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.defineClass2(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/nio/ByteBuffer;IILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;+0 java.base@22.0.1
+j  java.lang.ClassLoader.defineClass(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/ProtectionDomain;)Ljava/lang/Class;+93 java.base@22.0.1
+j  java.security.SecureClassLoader.defineClass(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/CodeSource;)Ljava/lang/Class;+8 java.base@22.0.1
+j  jdk.internal.loader.BuiltinClassLoader.defineClass(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class;+127 java.base@22.0.1
+j  jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class;+9 java.base@22.0.1
+j  jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(Ljava/lang/String;Z)Ljava/lang/Class;+55 java.base@22.0.1
+j  jdk.internal.loader.BuiltinClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+3 java.base@22.0.1
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3 java.base@22.0.1
+v  ~StubRoutines::call_stub 0x000001e66ae5100d
+j  com.sun.prism.d3d.D3DPipeline.<clinit>()V+126 javafx.graphics@22.0.1
+v  ~StubRoutines::call_stub 0x000001e66ae5100d
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class;+0 java.base@22.0.1
+j  java.lang.Class.forName(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;+19 java.base@22.0.1
+j  java.lang.Class.forName(Ljava/lang/String;)Ljava/lang/Class;+6 java.base@22.0.1
+j  com.sun.prism.GraphicsPipeline.createPipeline()Lcom/sun/prism/GraphicsPipeline;+180 javafx.graphics@22.0.1
+j  com.sun.javafx.tk.quantum.QuantumRenderer$PipelineRunnable.init()V+0 javafx.graphics@22.0.1
+j  com.sun.javafx.tk.quantum.QuantumRenderer$PipelineRunnable.run()V+1 javafx.graphics@22.0.1
+j  java.lang.Thread.runWith(Ljava/lang/Object;Ljava/lang/Runnable;)V+5 java.base@22.0.1
+j  java.lang.Thread.run()V+19 java.base@22.0.1
+v  ~StubRoutines::call_stub 0x000001e66ae5100d
+
+siginfo: EXCEPTION_IN_PAGE_ERROR (0xc0000006), reading address 0x000001e65f2e1000
+
+
+Registers:
+RAX=0x000001e65f2e1000, RBX=0x0000000000000108, RCX=0x0000000000000108, RDX=0x000000687defd7e0
+RSP=0x000000687defcf30, RBP=0x000000687defd030, RSI=0x0000000000000000, RDI=0x000001e677bb7e30
+R8 =0x0000000000000000, R9 =0x000001e6414d0c50, R10=0x000001e64543a580, R11=0x000000687defcea0
+R12=0x000000687defd60b, R13=0x000000687defd460, R14=0x000000687defd7e0, R15=0x000001e6414d0c50
+RIP=0x00007ffef7dad91a, EFLAGS=0x0000000000010216
+
+
+Register to memory mapping:
+
+RAX=0x000001e65f2e1000 is an unknown value
+RBX=0x0000000000000108 is an unknown value
+RCX=0x0000000000000108 is an unknown value
+RDX=0x000000687defd7e0 is pointing into the stack for thread: 0x000001e677bb7e30
+RSP=0x000000687defcf30 is pointing into the stack for thread: 0x000001e677bb7e30
+RBP=0x000000687defd030 is pointing into the stack for thread: 0x000001e677bb7e30
+RSI=0x0 is null
+RDI=0x000001e677bb7e30 is a thread
+R8 =0x0 is null
+R9 =0x000001e6414d0c50 is pointing into metadata
+R10=0x000001e64543a580 points into unknown readable memory: 0x0000000100000002 | 02 00 00 00 01 00 00 00
+R11=0x000000687defcea0 is pointing into the stack for thread: 0x000001e677bb7e30
+R12=0x000000687defd60b is pointing into the stack for thread: 0x000001e677bb7e30
+R13=0x000000687defd460 is pointing into the stack for thread: 0x000001e677bb7e30
+R14=0x000000687defd7e0 is pointing into the stack for thread: 0x000001e677bb7e30
+R15=0x000001e6414d0c50 is pointing into metadata
+
+Top of Stack: (sp=0x000000687defcf30)
+0x000000687defcf30:   000001e6414d4058 0000000000000108
+0x000000687defcf40:   000000687defd030 0000000000000000
+0x000000687defcf50:   000001e600000000 000001e6454366c8
+0x000000687defcf60:   000001e677bb7e30 0000000000000001
+0x000000687defcf70:   0000000000000000 0000000000000000
+0x000000687defcf80:   0000000000000000 0000000000000000
+0x000000687defcf90:   0000000000000000 000000b7022f0100
+0x000000687defcfa0:   00000000ffffffff 0000000000000000
+0x000000687defcfb0:   0000000000000036 0000000000000000
+0x000000687defcfc0:   0000000000000000 0000000000000000
+0x000000687defcfd0:   0000000000000000 0000000000000000
+0x000000687defcfe0:   0000000000000000 0000000000000000
+0x000000687defcff0:   0000010000000002 00007ffe00000000
+0x000000687defd000:   000001e600446848 0000000000000000
+0x000000687defd010:   0000000000000036 0000000000000000
+0x000000687defd020:   0000000000000000 0000000000000000
+0x000000687defd030:   0000000000000000 0000000000000001
+0x000000687defd040:   000001e677bc0000 0000000000000000
+0x000000687defd050:   0000000000000000 0000000000000000
+0x000000687defd060:   0000000000000000 0000000000000000
+0x000000687defd070:   0000000000000000 0000000000000000
+0x000000687defd080:   0000000000000000 000001e6454366c8
+0x000000687defd090:   0000000000000000 0000000000000000
+0x000000687defd0a0:   00000000ffffffff 0000000000000000
+0x000000687defd0b0:   0000000000000000 0000000000000000
+0x000000687defd0c0:   00000000000011c0 000001e6414d1250
+0x000000687defd0d0:   000001e6451b6940 000001e64518d2a0
+0x000000687defd0e0:   000001e64543a580 000001e677bca4d0
+0x000000687defd0f0:   000001e677bca610 000001e677bca8b8
+0x000000687defd100:   00000000000003d8 000001e658ba3b50
+0x000000687defd110:   000000687defd60b 000001e677bb7e30
+0x000000687defd120:   000000687defd7e0 0000000000000000 
+
+Instructions: (pc=0x00007ffef7dad91a)
+0x00007ffef7dad81a:   19 48 89 74 24 20 48 8d 15 c9 29 81 00 4d 8b cd
+0x00007ffef7dad82a:   48 8b cb e8 8e 69 ff ff 33 c0 4c 8b bc 24 90 00
+0x00007ffef7dad83a:   00 00 48 83 c4 50 41 5e 41 5d 41 5c 5f 5e 5d 5b
+0x00007ffef7dad84a:   c3 48 89 74 24 20 48 8d 15 69 29 81 00 4d 8b cd
+0x00007ffef7dad85a:   44 8b c0 eb cb cc 4c 89 4c 24 20 48 89 4c 24 08
+0x00007ffef7dad86a:   55 56 57 41 55 41 56 41 57 48 8d ac 24 18 ff ff
+0x00007ffef7dad87a:   ff 48 81 ec e8 01 00 00 48 8b bd 48 01 00 00 4d
+0x00007ffef7dad88a:   8b f9 41 0f b6 f0 4c 8b f2 4c 8b e9 4c 8b 97 20
+0x00007ffef7dad89a:   03 00 00 4c 89 95 b0 00 00 00 49 8b 42 10 48 89
+0x00007ffef7dad8aa:   85 b8 00 00 00 49 8b 42 18 48 89 85 c0 00 00 00
+0x00007ffef7dad8ba:   49 8b 42 20 48 89 85 c8 00 00 00 49 8b 42 28 48
+0x00007ffef7dad8ca:   89 85 d0 00 00 00 48 8b 42 10 48 2b 42 18 48 83
+0x00007ffef7dad8da:   f8 08 73 0b 48 8b d7 49 8b ce e8 27 41 00 00 48
+0x00007ffef7dad8ea:   83 7f 08 00 48 89 9c 24 30 02 00 00 4c 89 a4 24
+0x00007ffef7dad8fa:   e0 01 00 00 0f 85 69 01 00 00 49 8b 46 18 0f b7
+0x00007ffef7dad90a:   08 48 83 c0 02 49 89 46 18 66 c1 c9 08 0f b7 d9
+0x00007ffef7dad91a:   0f b7 10 48 83 c0 02 66 c1 ca 08 49 89 46 18 49
+0x00007ffef7dad92a:   8b 45 28 44 0f b7 c2 66 89 54 24 6a 44 3b 40 3c
+0x00007ffef7dad93a:   7d 0e 48 8b 40 08 42 0f b6 44 00 04 3c 01 74 02
+0x00007ffef7dad94a:   32 c0 41 80 bd a8 01 00 00 00 74 1b 84 c0 75 17
+0x00007ffef7dad95a:   4c 8b cf 48 8d 15 0c 2b 81 00 49 8b cd e8 34 69
+0x00007ffef7dad96a:   ff ff 0f b7 54 24 6a 48 83 7f 08 00 0f 85 f1 00
+0x00007ffef7dad97a:   00 00 0f b7 c2 4c 8b c7 49 8b cd 48 8d 04 c5 48
+0x00007ffef7dad98a:   00 00 00 4e 8b 24 38 49 8b d4 48 89 85 90 00 00
+0x00007ffef7dad99a:   00 4c 89 65 58 e8 3c 3a 00 00 48 83 7f 08 00 0f
+0x00007ffef7dad9aa:   85 be 00 00 00 49 8b 46 18 0f b7 10 48 83 c0 02
+0x00007ffef7dad9ba:   66 c1 ca 08 49 89 46 18 49 8b 45 28 44 0f b7 c2
+0x00007ffef7dad9ca:   66 89 54 24 6c 44 3b 40 3c 7d 0e 48 8b 40 08 42
+0x00007ffef7dad9da:   0f b6 44 00 04 3c 01 74 17 4c 8b cf 48 8d 15 c3
+0x00007ffef7dad9ea:   2a 81 00 49 8b cd e8 ab 68 ff ff 0f b7 54 24 6c
+0x00007ffef7dad9fa:   48 83 7f 08 00 75 6c 48 8b 0d d0 78 ad 00 0f b7
+0x00007ffef7dada0a:   c2 48 83 c0 09 4d 8b 04 c7 49 8d 04 c7 4c 89 45 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000001e6414d4058 is pointing into metadata
+stack at sp + 1 slots: 0x0000000000000108 is an unknown value
+stack at sp + 2 slots: 0x000000687defd030 is pointing into the stack for thread: 0x000001e677bb7e30
+stack at sp + 3 slots: 0x0 is null
+stack at sp + 4 slots: 0x000001e600000000 is pointing into metadata
+stack at sp + 5 slots: 0x000001e6454366c8 points into unknown readable memory: 0x526e000c366c0001 | 01 00 6c 36 0c 00 6e 52
+stack at sp + 6 slots: 0x000001e677bb7e30 is a thread
+stack at sp + 7 slots: 0x0000000000000001 is an unknown value
+
+native method entry point (kind = native)  [0x000001e66ae5cba0, 0x000001e66ae5d6c0]  2848 bytes
