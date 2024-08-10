@@ -3,7 +3,7 @@ import java.net.*;
 
 public class Client {
     public static void main(String[] args) {
-        String hostname = "127.0.0.1";  // Replace with server IP address
+        String hostname = "192.168.1.106";  // Replace with server IP address
         int port = 8080;
 
         try (Socket socket = new Socket(hostname, port)) {
