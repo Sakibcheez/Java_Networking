@@ -5,64 +5,56 @@
 package java_ntc2;
 import java.io.*;
 import java.net.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
-public class ChatServer extends JFrame {
-    private JTextArea chatArea;
-    private JTextField inputField;
-    private PrintWriter output;
-    private BufferedReader input;
+public class ChatServer {
     private ServerSocket server;
     private Socket socket;
+    private BufferedReader input;
+    private PrintWriter output;
+    private BufferedReader consoleInput;
 
     public ChatServer() {
-        // Create UI
-        setTitle("Chat Server");
-        setSize(400, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        chatArea = new JTextArea();
-        chatArea.setEditable(false);
-        inputField = new JTextField();
-        add(new JScrollPane(chatArea), BorderLayout.CENTER);
-        add(inputField, BorderLayout.SOUTH);
+        try {
+            // Create server socket on port 5000
+            server = new ServerSocket(5000);
+            System.out.println("Waiting for a client to connect...");
 
-        inputField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sendMessage(e.getActionCommand());
-                inputField.setText("");
-            }
-        });
+            socket = server.accept();
+            System.out.println("Client connected.");
 
-        setVisible(true);
+            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            output = new PrintWriter(socket.getOutputStream(), true);
+            consoleInput = new BufferedReader(new InputStreamReader(System.in));
 
-        // Networking setup
-        new Thread(() -> {
-            try {
-                server = new ServerSocket(5000);  // Port number 5000
-                chatArea.append("Waiting for connection...\n");
-                socket = server.accept();  // Accept connection
-                chatArea.append("Client connected\n");
+            // Start a thread to listen for incoming messages from the client
+            new Thread(new IncomingReader()).start();
 
-                input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                output = new PrintWriter(socket.getOutputStream(), true);
-
-                while (true) {
-                    String message = input.readLine();
-                    if (message != null) {
-                        chatArea.append("Client: " + message + "\n");
-                    }
+            // Sending messages from the console
+            String userMessage;
+            while (true) {
+                userMessage = consoleInput.readLine();
+                if (userMessage != null) {
+                    output.println("Server: " + userMessage);
                 }
-            } catch (IOException ex) {
-                ex.printStackTrace();
             }
-        }).start();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void sendMessage(String message) {
-        chatArea.append("Server: " + message + "\n");
-        output.println(message);  // Send message to client
+    // Thread for listening to incoming messages
+    private class IncomingReader implements Runnable {
+        public void run() {
+            String clientMessage;
+            try {
+                while ((clientMessage = input.readLine()) != null) {
+                    System.out.println(clientMessage);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
